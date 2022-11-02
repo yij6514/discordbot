@@ -1,0 +1,13 @@
+package discord;
+
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+
+public class Testingbot {
+	public static JDA jda;
+	
+	public static void main(String argv[]) {
+		jda = JDABuilder.createDefault("token").build();
+	}
+}

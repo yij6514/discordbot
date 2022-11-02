@@ -1,0 +1,39 @@
+package discord;
+
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+public class Testingbot {
+	public static JDA jda;
+	
+	public class MyListener extends ListenerAdapter{
+		
+		@Override
+		public void onMessageReceived(MessageReceivedEvent event) {
+			if(event.getAuthor().isBot()) return;
+			
+			Message message = event.getMessage();
+			String content = message.getContentRaw();
+			
+			if(content.equals("!ping")) {
+				MessageChannel channel = event.getChannel();
+				channel.sendMessage("Pong!").queue();
+			}
+		}
+	}
+	
+	public static void main(String argv[]) {
+		jda = JDABuilder.createDefault("MTAzMjcyMTQ0NDc3MTIxNzQ2OA.G9I-AN.X_bDmUDRp743mr_yk9Abz9ta5QlTJ8Dmc__Tps").build();
+		
+		jda.getPresence().setStatus(OnlineStatus.IDLE);	
+		
+		jda.addEventListener(new MyListener());
+	}
+	
+	
+}

@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Users\yij65\OneDrive\바탕 화면\bottesting\.metadata\.plugins\org.eclipse.jdt.core
+3021340510.index
+974691583.index
+1865797976.index
+547264035.index
+3011209426.index
